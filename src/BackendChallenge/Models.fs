@@ -1,7 +1,4 @@
 namespace BackendChallenge.Models
 
 [<CLIMutable>]
-type Message =
-    {
-        Text : string
-    }
+type Message = { Text: string }
