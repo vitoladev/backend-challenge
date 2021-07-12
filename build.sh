@@ -1,4 +1,4 @@
 #!/bin/sh
 dotnet restore
-dotnet build --no-restore
-dotnet test --no-build
+dotnet build ./src/BackendChallenge --no-restore
+dotnet test ./tests/BackendChallenge.Tests --no-build
