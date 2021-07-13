@@ -18,8 +18,4 @@
         <Compile Include="Config.fs"/>
         <Compile Include="Program.fs"/>
     </ItemGroup>
-
-    <ItemGroup>
-        <None Include="web.config" CopyToOutputDirectory="PreserveNewest"/>
-    </ItemGroup>
 </Project>
