@@ -17,8 +17,8 @@ open Microsoft.Extensions.DependencyInjection
 let createHost() =
     WebHostBuilder()
         .UseContentRoot(Directory.GetCurrentDirectory())
-        .Configure(Action<IApplicationBuilder> BackendChallenge.App.configureApp)
-        .ConfigureServices(Action<IServiceCollection> BackendChallenge.App.configureServices)
+        .Configure(Action<IApplicationBuilder> BackendChallenge.Config.configureApp)
+        .ConfigureServices(Action<IServiceCollection> BackendChallenge.Config.configureServices)
 
 let runTask task =
     task
