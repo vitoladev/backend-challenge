@@ -1,15 +1,21 @@
 module BackendChallenge.Models.Recipe
 
-open AccidentalFish.FSharp.Validation
-
 type Ingredient =
-    { food: string
-      quantity: int
+    { id: string
+      food: string
+      quantity: string
       unit: string }
 
 type Equipment = { tool: string; quantity: int }
 
 [<CLIMutable>]
+type RecipeCollection =
+    { id: string
+      name: string
+      description: string
+      ingredientsRef: ResizeArray<string>
+      equipments: ResizeArray<Equipment> }
+
 type Recipe =
     { id: string
       name: string
