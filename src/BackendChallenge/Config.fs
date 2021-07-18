@@ -2,7 +2,6 @@ module BackendChallenge.Config
 
 open BackendChallenge.App
 open BackendChallenge.Data
-open BackendChallenge.Models.Recipe
 open System
 open Microsoft.AspNetCore.Builder
 open Microsoft.Extensions.Logging
@@ -47,7 +46,7 @@ let configureServices (services: IServiceCollection) =
     let mongo = MongoClient(dbConnectionString)
     let db = mongo.GetDatabase "challengedb"
 
-    services.AddMongoDb(db.GetCollection<Recipe>("recipes"))
+    services.AddMongoDb(db)
     services.AddCors() |> ignore
     services.AddGiraffe() |> ignore
 
