@@ -2,7 +2,6 @@ module BackendChallenge.Data
 
 open BackendChallenge.Models.Recipe
 open BackendChallenge.CMS.Service
-open BackendChallenge.Recipe.Service
 open Microsoft.Extensions.DependencyInjection
 open MongoDB.Driver
 
