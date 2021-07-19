@@ -2,6 +2,7 @@ module BackendChallenge.Data
 
 open BackendChallenge.Models.Recipe
 open BackendChallenge.CMS.Service
+open BackendChallenge.Recipe.Service
 open Microsoft.Extensions.DependencyInjection
 open MongoDB.Driver
 
@@ -16,3 +17,5 @@ type IServiceCollection with
         this.AddSingleton<CreateRecipe>(createRecipe recipeCollection ingredientCollection)
         |> ignore
 
+        this.AddSingleton<FindRecipesPaginated>(findRecipes recipeCollection ingredientCollection)
+        |> ignore

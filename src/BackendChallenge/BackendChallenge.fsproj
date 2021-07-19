@@ -17,10 +17,11 @@
         <Compile Include="Models\Recipe.fs" />
         <Compile Include="Models\Validations\Recipe.fs" />
         <Compile Include="Ingredients\Service.fs" />
+        <Compile Include="Recipe\HttpHandlers.fs" />
+        <Compile Include="Recipe\Service.fs" />
         <Compile Include="CMS\Service.fs" />
         <Compile Include="CMS\HttpHandlers.fs" />
         <Compile Include="App.fs" />
-        <Folder Include="Recipe" />
         <Compile Include="Data.fs" />
         <Compile Include="Config.fs" />
         <Compile Include="Program.fs" />
