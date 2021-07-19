@@ -2,6 +2,7 @@ module BackendChallenge.App
 
 open Giraffe
 open BackendChallenge.CMS.HttpHandlers
+open BackendChallenge.Recipe.HttpHandlers
 open Microsoft.AspNetCore.Http
 
 let webApp : HttpFunc -> HttpContext -> HttpFuncResult =
