@@ -6,5 +6,13 @@ open Microsoft.Extensions.DependencyInjection
 open MongoDB.Driver
 
 type IServiceCollection with
-  member this.AddMongoDb(collection : IMongoCollection<Recipe>) =
-    this.AddSingleton<CreateRecipe>(createRecipe collection) |> ignore
+    member this.AddMongoDb(db: IMongoDatabase) =
+        let recipeCollection =
+            db.GetCollection<RecipeCollection>("recipes")
+
+        let ingredientCollection =
+            db.GetCollection<Ingredient>("ingredients")
+
+        this.AddSingleton<CreateRecipe>(createRecipe recipeCollection ingredientCollection)
+        |> ignore
+
