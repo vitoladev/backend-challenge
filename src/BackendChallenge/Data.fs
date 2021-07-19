@@ -19,3 +19,6 @@ type IServiceCollection with
 
         this.AddSingleton<FindRecipesPaginated>(findRecipes recipeCollection ingredientCollection)
         |> ignore
+
+        this.AddSingleton<FindRecipesByIngredientId>(findRecipesByIngredientId recipeCollection ingredientCollection)
+        |> ignore

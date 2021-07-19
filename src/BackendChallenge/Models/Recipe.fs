@@ -30,3 +30,5 @@ type CreateRecipe = Recipe -> CreateRecipeResult
 type RecipePaginatedResult = { data: Recipe list; totalPages: int }
 
 type FindRecipesPaginated = int -> Async<RecipePaginatedResult>
+
+type FindRecipesByIngredientId = string -> Async<Recipe list>

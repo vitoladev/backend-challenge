@@ -58,3 +58,23 @@ let findRecipes
               totalPages = totalPages }
     }
 
+let findRecipesByIngredientId
+    (recipesCollection: IMongoCollection<RecipeCollection>)
+    (ingredientsCollection: IMongoCollection<Ingredient>)
+    (ingredientId: string)
+    =
+    async {
+        let ingredientsFilter =
+            Builders<RecipeCollection>.Filter.Where (fun i -> i.ingredientsRef.Contains(ingredientId))
+
+        let! collection =
+            recipesCollection.FindAsync<RecipeCollection>(ingredientsFilter)
+            |> Async.AwaitTask
+
+        let! recipesData = collection.ToListAsync() |> Async.AwaitTask
+
+        let recipes =
+            convertCollectionToRecipe recipesData ingredientsCollection
+
+        return recipes
+    }

@@ -32,3 +32,13 @@ let handleFindRecipes : HttpHandler =
                             next
                             ctx
         }
+
+let handleFindRecipesByIngredientId (ingredientId: string) : HttpHandler =
+    fun (next: HttpFunc) (ctx: HttpContext) ->
+        task {
+            let findRecipeByIngredientId =
+                ctx.GetService<FindRecipesByIngredientId>()
+
+            let! recipes = findRecipeByIngredientId ingredientId
+            return! Successful.OK recipes next ctx
+        }

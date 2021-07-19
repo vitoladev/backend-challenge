@@ -9,5 +9,7 @@ let webApp : HttpFunc -> HttpContext -> HttpFuncResult =
     choose [ subRoute
                  "/api"
                  (choose [ POST >=> route "/cms" >=> handleCreateRecipe
-                           GET >=> route "/recipes" >=> handleFindRecipes ])
+                           GET >=> route "/recipes" >=> handleFindRecipes
+                           GET
+                           >=> routef "/recipes/ingredient/%s" handleFindRecipesByIngredientId ])
              setStatusCode 404 >=> text "Not Found" ]
