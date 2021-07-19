@@ -23,4 +23,6 @@ type Recipe =
       ingredients: Ingredient list
       equipments: Equipment list }
 
-type CreateRecipe = Recipe -> Async<Recipe>
+type CreateRecipeResult = Async<Result<Recipe, string>>
+
+type CreateRecipe = Recipe -> CreateRecipeResult
